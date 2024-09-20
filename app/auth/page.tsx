@@ -79,7 +79,6 @@ const Auth = () => {
               type="text"
               placeholder="User Name @example: John Doe"
               value={userName}
-              required
               onChange={(e) => setUserName(e.target.value)}
               className="w-full px-2 py-3 dark:text-gray-900 text-sm font-sans text-gray-50 bg-slate-100 dark:bg-gray-100 rounded-lg"
             />
@@ -88,7 +87,6 @@ const Auth = () => {
                 type={showPassword ? "text" : "password"}
                 placeholder="Password @example: @#$123"
                 value={userPassword}
-                required
                 onChange={(e) => setUserPassword(e.target.value)}
                 className="w-full px-2 py-3 dark:text-gray-900 text-sm font-sans text-gray-50 bg-slate-100 dark:bg-gray-100 rounded-lg"
               />
