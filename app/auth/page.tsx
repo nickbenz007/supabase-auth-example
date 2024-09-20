@@ -43,7 +43,7 @@ const Auth = () => {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: "https://supabase-auth-example-seven.vercel.app/",
+        redirectTo: `${location.origin}/https://supabase-auth-example-seven.vercel.app`,
       },
     });
     if (error) {
