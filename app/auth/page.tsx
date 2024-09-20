@@ -40,8 +40,9 @@ const Auth = () => {
   };
 
   const handleSignInWithGoogle = async () => {
-    const callBackUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
-      ? `https://${process.env.NEXT_PUBLIC_SUPABASE_URL}/auth/callback`
+    const isLocal = process.env.NODE_ENV === "development";
+    const callBackUrl = isLocal
+      ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/auth/callback`
       : "http://localhost:3000/auth/callback";
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
