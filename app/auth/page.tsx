@@ -50,8 +50,6 @@ const Auth = () => {
     });
     if (error) {
       console.log(error.message, "Unepected error occurred while logging");
-    } else {
-      setErr("");
     }
   };
   return (
