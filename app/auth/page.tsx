@@ -44,8 +44,8 @@ const Auth = () => {
       provider: "google",
       options: {
         redirectTo: location.origin
-          ? `${location.origin}/`
-          : `${location.origin}/https://supabase-auth-example-seven.vercel.app/`,
+          ? `${location.origin}/https://supabase-auth-example-seven.vercel.app/`
+          : `${location.origin}/`,
       },
     });
     if (error) {
