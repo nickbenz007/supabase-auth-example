@@ -29,9 +29,6 @@ const Auth = () => {
         setLoading(false);
         router.push("/");
       } else {
-        setErr(
-          "Invalid credentials, Please enter the correct Username / Password"
-        );
         setLoading(false);
         setUserName("");
         setUserPassword("");
