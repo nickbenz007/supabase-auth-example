@@ -30,6 +30,9 @@ const Auth = () => {
         router.push("/");
       } else {
         setLoading(false);
+        setErr(
+          "Invalid credentials, Please enter the correct Username / Password"
+        );
         setUserName("");
         setUserPassword("");
       }
@@ -133,17 +136,17 @@ const Auth = () => {
             <p className="dark:text-gray-200 text-gray-800 text-sm font-sans font-normal">
               Sign in with your google account
             </p>
-            <div className="flex flex-col w-full items-center justify-center">
-              <Button
-                onClick={handleSignInWithGoogle}
-                className="flex w-14 h-14 rounded-xl"
-                variant={"outline"}
-              >
-                <FcGoogle size={40} />
-              </Button>
-            </div>
           </form>
           {/* Form End */}
+          <div className="flex flex-col w-full items-center justify-center">
+            <Button
+              onClick={handleSignInWithGoogle}
+              className="flex w-14 h-14 rounded-xl"
+              variant={"outline"}
+            >
+              <FcGoogle size={40} />
+            </Button>
+          </div>
         </div>
       </div>
       {/* Gradient Container */}

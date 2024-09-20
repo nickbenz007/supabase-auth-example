@@ -16,7 +16,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Next Js Boilerplate",
+  title: "Next Js Supabase Auth",
   description: "Portfolio",
 };
 
