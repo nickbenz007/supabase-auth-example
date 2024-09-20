@@ -39,11 +39,11 @@ const Auth = () => {
     }, 1000);
   };
 
-  const handleSignInWithGoogle = async () => {
+  const handleSignInWithGoogle = async (provider: "google") => {
     const { error } = await supabase.auth.signInWithOAuth({
-      provider: "google",
+      provider: provider,
       options: {
-        redirectTo: "https://supabase-auth-example-seven.vercel.app",
+        redirectTo: `https://supabase-auth-example-seven.vercel.app/provider?refresh=true`,
         // location.origin + "?next=/callback",
         // ? location.origin + "/"
       },
@@ -142,7 +142,7 @@ const Auth = () => {
           {/* Form End */}
           <div className="flex flex-col w-full items-center justify-center">
             <Button
-              onClick={handleSignInWithGoogle}
+              onClick={() => handleSignInWithGoogle("google")}
               className="flex w-14 h-14 rounded-xl"
               variant={"outline"}
             >
