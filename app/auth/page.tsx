@@ -44,7 +44,7 @@ const Auth = () => {
       provider: "google",
       options: {
         redirectTo:
-          "https://supabase-auth-example-seven.vercel.app?next=/callback",
+          "https://supabase-auth-example-seven.vercel.app/next?/callback",
         // location.origin + "?next=/callback",
         // ? location.origin + "/"
       },
