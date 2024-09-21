@@ -43,7 +43,9 @@ const Auth = () => {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: location.origin + "/auth/callback",
+        redirectTo: location.origin
+          ? `${location.origin}/auth/callback`
+          : `${location.origin}?next=/auth/callback`,
       },
     });
     if (error) {
