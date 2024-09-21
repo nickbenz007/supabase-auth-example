@@ -43,7 +43,7 @@ const Auth = () => {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: location.origin + "/auth/callback",
+        redirectTo: window.location.origin + "/auth/callback",
       },
     });
     if (error) {
@@ -78,7 +78,7 @@ const Auth = () => {
               placeholder="User Name @example: John Doe"
               value={userName}
               onChange={(e) => setUserName(e.target.value)}
-              className="w-full px-2 py-3 dark:text-gray-900 text-sm font-sans text-gray-50 bg-slate-100 dark:bg-gray-100 rounded-lg"
+              className="w-full px-2 py-3 dark:text-gray-900 text-sm font-sans text-gray-900 bg-slate-100 dark:bg-gray-100 rounded-lg"
             />
             <div className="relative flex w-full items-center justify-center">
               <input
@@ -86,7 +86,7 @@ const Auth = () => {
                 placeholder="Password @example: @#$123"
                 value={userPassword}
                 onChange={(e) => setUserPassword(e.target.value)}
-                className="w-full px-2 py-3 dark:text-gray-900 text-sm font-sans text-gray-50 bg-slate-100 dark:bg-gray-100 rounded-lg"
+                className="w-full px-2 py-3 dark:text-gray-900 text-sm font-sans text-gray-900 bg-slate-100 dark:bg-gray-100 rounded-lg"
               />
 
               {/* Toggling Password Icon */}
