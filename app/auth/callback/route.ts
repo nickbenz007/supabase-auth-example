@@ -16,16 +16,12 @@ export async function GET(request: Request) {
       const isLocalEnv = process.env.NODE_ENV === "development";
 
       if (isLocalEnv) {
-        // In development, use localhost
-        return NextResponse.redirect(`http://localhost:3000${next}`);
+        // we can be sure that there is no load balancer in between, so no need to watch for X-Forwarded-Host
+        return NextResponse.redirect(`${origin}${next}`);
       } else if (forwardedHost) {
-        // Use the forwarded host in production
         return NextResponse.redirect(`https://${forwardedHost}${next}`);
       } else {
-        // Fallback to hardcoded production domain if forwardedHost is not set
-        return NextResponse.redirect(
-          `https://supabase-auth-example-two.vercel.app${next}`
-        );
+        return NextResponse.redirect(`${origin}${next}`);
       }
     }
   }

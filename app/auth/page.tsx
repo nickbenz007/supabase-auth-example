@@ -41,15 +41,10 @@ const Auth = () => {
   };
 
   const handleSignInWithOAuth = async (provider: "google" | "github") => {
-    const redirectTo =
-      process.env.NODE_ENV === "development"
-        ? "http://localhost:3000"
-        : "https://supabase-auth-example-two.vercel.app/";
-
     const { error } = await supabase.auth.signInWithOAuth({
       provider,
       options: {
-        redirectTo: `${redirectTo}/auth/callback?next=/`,
+        redirectTo: location.origin + "/auth/callback",
       },
     });
 
