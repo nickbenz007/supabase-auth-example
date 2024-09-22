@@ -41,15 +41,18 @@ const Auth = () => {
   };
 
   const handleSignInWithOAuth = async (provider: "google" | "github") => {
+    const redirectTo =
+      process.env.NODE_ENV === "development"
+        ? "http://localhost:3000"
+        : "https://supabase-auth-example-two.vercel.app/";
+
     const { error } = await supabase.auth.signInWithOAuth({
       provider,
       options: {
-        redirectTo:
-          process.env.NODE_ENV === "production"
-            ? process.env.NEXT_PUBLIC_SUPABASE_REDIRECT_URI
-            : location.origin + "/auth/callback?next=/",
+        redirectTo: `${redirectTo}/auth/callback`,
       },
     });
+
     if (error) {
       console.log(error.message, "Unepected error occurred while logging");
     }
