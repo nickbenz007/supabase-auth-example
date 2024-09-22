@@ -47,8 +47,8 @@ const Auth = () => {
         process?.env?.NEXT_PUBLIC_VERCEL_URL ?? // Automatically set by Vercel.
         "http://localhost:3000/"; // Default to localhost in development.
 
+      //  Checking part of the path Start & Ends with e.g http, https & /
       url = url.startsWith("http") ? url : `https://${url}`;
-
       url = url.endsWith("/") ? url : `${url}/`;
 
       return url;
@@ -56,7 +56,7 @@ const Auth = () => {
     const { error } = await supabase.auth.signInWithOAuth({
       provider,
       options: {
-        redirectTo: getUrl(),
+        redirectTo: getUrl(), // Redirecting dynamically while on dev and production environment
       },
     });
 
