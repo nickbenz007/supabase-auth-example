@@ -49,7 +49,7 @@ const Auth = () => {
     const { error } = await supabase.auth.signInWithOAuth({
       provider,
       options: {
-        redirectTo: `${redirectTo}/auth/callback`,
+        redirectTo: `${redirectTo}/auth/callback?next=/`,
       },
     });
 
