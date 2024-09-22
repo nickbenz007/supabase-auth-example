@@ -39,14 +39,16 @@ const Auth = () => {
       }
     }, 1000);
   };
-  console.log(supabase.auth);
+
   const handleSignInWithOAuth = async (provider: "google" | "github") => {
+    // const redirectTo =
+    //   process.env.NODE_ENV === "production"
+    //     ? process.env.NEXT_PUBLIC_SUPABASE_REDIRECT_URI
+    //     : process.env.NEXT_PUBLIC_SUPABASE_REDIRECT_URI;
     const { error } = await supabase.auth.signInWithOAuth({
       provider,
       options: {
-        redirectTo: location.origin
-          ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/auth/callback`
-          : `${location.origin}/auth/callback`,
+        redirectTo: location.origin + "/auth/callback",
       },
     });
     if (error) {
