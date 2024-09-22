@@ -41,14 +41,10 @@ const Auth = () => {
   };
 
   const handleSignInWithOAuth = async (provider: "google" | "github") => {
-    // const redirectTo =
-    //   process.env.NODE_ENV === "production"
-    //     ? process.env.NEXT_PUBLIC_SUPABASE_REDIRECT_URI
-    //     : process.env.NEXT_PUBLIC_SUPABASE_REDIRECT_URI;
     const { error } = await supabase.auth.signInWithOAuth({
       provider,
       options: {
-        redirectTo: location.origin + "/auth/callback",
+        redirectTo: location.origin + "/",
       },
     });
     if (error) {
