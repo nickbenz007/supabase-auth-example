@@ -3,6 +3,7 @@ import React, { SyntheticEvent, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Eye, EyeOff, KeyRound, Loader } from "lucide-react";
 import { FcGoogle } from "react-icons/fc";
+import { FaGithub } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/subabase/client";
 
@@ -38,14 +39,14 @@ const Auth = () => {
       }
     }, 1000);
   };
-
-  const handleSignInWithGoogle = async () => {
+  console.log(supabase.auth);
+  const handleSignInWithOAuth = async (provider: "google" | "github") => {
     const { error } = await supabase.auth.signInWithOAuth({
-      provider: "google",
+      provider,
       options: {
         redirectTo: location.origin
-          ? `${location.origin}/auth/callback`
-          : `${location.origin}?next=/auth/callback`,
+          ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/auth/callback`
+          : `${location.origin}/auth/callback`,
       },
     });
     if (error) {
@@ -140,13 +141,20 @@ const Auth = () => {
             </p>
           </form>
           {/* Form End */}
-          <div className="flex flex-col w-full items-center justify-center">
+          <div className="flex w-full gap-2 items-center justify-center">
             <Button
-              onClick={handleSignInWithGoogle}
+              onClick={() => handleSignInWithOAuth("google")}
               className="flex w-14 h-14 rounded-xl"
               variant={"outline"}
             >
               <FcGoogle size={40} />
+            </Button>
+            <Button
+              onClick={() => handleSignInWithOAuth("github")}
+              className="flex w-14 h-14 rounded-xl"
+              variant={"outline"}
+            >
+              <FaGithub size={40} />
             </Button>
           </div>
         </div>
