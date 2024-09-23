@@ -81,7 +81,10 @@ const Auth = () => {
           </div>
           <div className="flex flex-row gap-2 items-center justify-center py-4">
             <KeyRound />
-            <h1 className="text-2xl font-bold"> Sign In</h1>
+            <h1 className="text-2xl text-gray-50 font-bold font-sans">
+              {" "}
+              Sign In
+            </h1>
           </div>
           {/* Form Start */}
           <form
