@@ -5,7 +5,7 @@ import { Eye, EyeOff, KeyRound, Loader } from "lucide-react";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { useRouter } from "next/navigation";
-import { supabase } from "@/lib/subabase/client";
+import { createSupabaseBrowserClient } from "@/lib/subabase/client";
 
 const Auth = () => {
   const [userName, setUserName] = useState<string>("");
@@ -53,6 +53,7 @@ const Auth = () => {
 
       return url;
     };
+    const supabase = createSupabaseBrowserClient();
     const { error } = await supabase.auth.signInWithOAuth({
       provider,
       options: {
