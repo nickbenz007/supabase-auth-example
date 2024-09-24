@@ -19,7 +19,10 @@ export const Nav = () => {
           </Link>
         </div>
         {isLoading ? (
-          <Loader size={30} className="animate-spin" />
+          <Loader
+            size={30}
+            className="animate-spin dark:text-yellow-600 text-gray-900"
+          />
         ) : (
           <Profile />
         )}

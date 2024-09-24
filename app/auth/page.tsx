@@ -49,7 +49,7 @@ const Auth = () => {
 
       //  Checking part of the path Start & Ends with e.g http, https & /
       url = url.startsWith("http") ? url : `https://${url}`;
-      url = url.endsWith("/") ? url : `${url}/`;
+      url = url.endsWith("/") ? `${url}` : `${url}/`;
 
       return url;
     };
@@ -68,6 +68,7 @@ const Auth = () => {
   return (
     <div className="flex items-center justify-center w-full h-screen">
       {/* Gradient Container */}
+
       <div className="relative flex w-96 rounded-xl">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[conic-gradient(at_top_right,_#78716c,_#1e1b4b,_#2563eb,_#0ea5e9)] opacity-30 blur-xl"></div>

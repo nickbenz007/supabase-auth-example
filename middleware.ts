@@ -9,7 +9,6 @@ export const config = {
   matcher: [
     "/dashboard/:path*",
     "/account/:path*",
-    "/profile/:path*",
     "/auth",
     /*
      * Match all request paths except for the ones starting with:

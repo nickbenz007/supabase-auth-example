@@ -21,6 +21,7 @@ export async function updateSession(request: NextRequest) {
           supabaseResponse = NextResponse.next({
             request,
           });
+          console.log(request);
           cookiesToSet.forEach(({ name, value, options }) =>
             supabaseResponse.cookies.set(name, value, options)
           );
@@ -37,19 +38,22 @@ export async function updateSession(request: NextRequest) {
     data: { session },
   } = await supabase.auth.getSession();
   console.log(session);
+
+  const protectedPath = ["/dashboard", "/account"];
+  const authPath = request.nextUrl.pathname.startsWith("/auth");
+
   if (
-    (!session && request.nextUrl.pathname.startsWith("/dashboard")) ||
-    request.nextUrl.pathname.startsWith("/account") ||
-    request.nextUrl.pathname.startsWith("/profile")
+    !session &&
+    protectedPath.some((path) => request.nextUrl.pathname.startsWith(path))
   ) {
     // no user, potentially respond by redirecting the user to the login page
     const url = request.nextUrl.clone();
-    url.pathname = "/auth" + request.url;
+    url.pathname = "/auth";
     return NextResponse.redirect(url);
   }
 
-  // if user is logge In, potentially respond by redirecting the user to the profile / main page
-  if (session && request.nextUrl.pathname.startsWith("/auth")) {
+  // if user is Already present, potentially respond by redirecting the user to the profile / main page
+  if (session?.user && authPath) {
     const url = request.nextUrl.clone();
     url.pathname = "/";
     return NextResponse.redirect(url);

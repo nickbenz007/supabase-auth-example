@@ -22,7 +22,7 @@ export const Profile = () => {
     <div>
       {user ? (
         <div className="flex items-center justify-center gap-3">
-          <span className="dark:text-gray-50 text-gray-900 font-sans font-semibold text-lg">
+          <span className="text-gray-50 font-sans font-semibold text-lg">
             {user.display_name}
           </span>
           <div>
