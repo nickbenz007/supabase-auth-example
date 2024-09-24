@@ -1,0 +1,38 @@
+[
+    {
+        "Title" : "Basic Package",
+        "Price" : 299.99,
+        "Description" : "This is the description of the product",
+        "Benefits" : [
+            "Moden Landing Pages", 
+            "UI/UX and scalability",
+            "Cross browser interfaces", 
+            "Responsive and smooth",
+            "Modern days website", 
+            "Fully functional website"]
+    },
+    {
+        "Title" : "Pro Package",
+        "Price" : 399.99,
+        "Description" : "This is the description of the product",
+        "Benefits" : [
+            "SPA/Single Page App", 
+            "Updates & Upgrades",
+            "Various test and CI/CD", 
+            "Dockerized",
+            "Vise Versa", 
+            "Team email support"]
+    },
+    {
+        "Title" : "Premium Package",
+        "Price" : 499.99,
+        "Description" : "This is the description of the product",
+        "Benefits" : [
+            "End to end Data Backups", 
+            "Database & Security",
+            "AWS Server management", 
+            "Ai driven app",
+            "3D Animated Application", 
+            "Online representative chat"]
+    }
+]

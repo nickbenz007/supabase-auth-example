@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useUser } from "./hook/useUser";
+import { Subscription } from "@/components/Subscription";
 
 export default function Home() {
   const { data: user } = useUser();
@@ -17,7 +18,7 @@ export default function Home() {
               Enjoy your stay and learn modern technologies.
             </p>
           </div>
-          <div className="flex w-full items-cecnter justify-center gap-4">
+          <div className="flex items-center justify-start gap-4">
             <Link
               href={"/dashboard"}
               className="dark:text-gray-50 text-gray-900 text-lg font-sans font-font-normal hover:underline"
@@ -31,6 +32,7 @@ export default function Home() {
               Account
             </Link>
           </div>
+          <Subscription />
         </main>
       ) : (
         <div className="flex w-full items-center justify-center">

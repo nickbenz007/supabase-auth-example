@@ -75,14 +75,14 @@ const Auth = () => {
         </div>
         <div className="relative z-10 w-96 items-center justify-center rounded-xl bg-transparent border border-gray-700 p-8 space-y-4 shadow-xl dark:shadow-gray-800 shadow-gray-300">
           <div className="flex w-full items-center justify-start">
-            <article className="text-lg dark:text-gray-300 text-gray-900 font-sans font-normal">
+            <article className="text-lg dark:text-gray-300 text-gray-900 font-sans font-semibold">
               {" "}
               Welccome back.!
             </article>
           </div>
           <div className="flex flex-row gap-2 items-center justify-center py-4">
             <KeyRound />
-            <h1 className="text-2xl text-gray-50 font-bold font-sans">
+            <h1 className="text-2xl text-gray-900 dark:text-gray-50 font-bold font-sans">
               {" "}
               Sign In
             </h1>
