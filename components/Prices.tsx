@@ -6,11 +6,11 @@ import { BadgeCheck } from "lucide-react";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
 
-export const Subscription = () => {
+export const Prices = () => {
   const subscription = dummy_data as SubscriptionType[];
   return (
-    <div className="flex w-2/3 items-center justify-center py-8">
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 w-full">
+    <div className="flex 2xl:w-2/3 xl:w-4/5 lg:w-2/1 w-full items-center justify-center py-8">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 w-full items-center justify-center justify-items-center">
         {subscription.map((item, index: number) => {
           const populatedCard = index === 1;
           return (
@@ -18,7 +18,7 @@ export const Subscription = () => {
               key={index}
               className={cn(
                 "flex flex-col w-80 h-auto justify-between border-2 border-sky-500 rounded-xl p-8 space-y-4 bg-gradient-to-br from-gray-800 to-gray-900 shadow-xl shadow-cyan-800",
-                { "border-green-500": populatedCard }
+                { "border-green-500 shadow-green-500 shadow-lg": populatedCard }
               )}
             >
               <div className="flex flex-col space-y-3">
@@ -34,17 +34,17 @@ export const Subscription = () => {
                   {item.Description}
                 </span>
               </div>
-              <div className="flex flex-col w-full space-y-3">
+              <div className="flex flex-col w-full space-y-3 py-4">
                 {item.Benefits.map((ben: string, index: number) => (
                   <ol key={index} className="list-none">
                     <li className="flex items-center gap-2">
-                      <BadgeCheck />
+                      <BadgeCheck size={18} className="text-green-600" />
                       {ben}
                     </li>
                   </ol>
                 ))}
               </div>
-              <div className="flex w-full items-center justify-center">
+              <div className="flex w-full items-center justify-center py-4">
                 <Button
                   variant={"outline"}
                   className={cn(

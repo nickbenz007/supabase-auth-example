@@ -1,16 +1,16 @@
 "use client";
 import Link from "next/link";
 import { useUser } from "./hook/useUser";
-import { Subscription } from "@/components/Subscription";
+import { Prices } from "@/components/Prices";
 
 export default function Home() {
   const { data: user } = useUser();
   return (
-    <div className="items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <div className="items-center justify-center min-h-screen pt-20 font-[family-name:var(--font-geist-sans)]">
       {/* Main Content */}
       {user ? (
         <main className="flex flex-col w-full gap-4 items-center justify-center">
-          <div className="w-96 h-auto items-center justify-center text-center p-8 border border-gray-500 rounded-xl">
+          <div className="w-96 h-auto items-center justify-center text-center p-8 my-8 border border-gray-500 rounded-xl">
             <h1 className="text-2xl dark:text-gray-50 text-gray-900 font-sans font-semibold">
               Welcome to Precise Tech.!
             </h1>
@@ -31,8 +31,14 @@ export default function Home() {
             >
               Account
             </Link>
+            <Link
+              href={"/subscription"}
+              className="dark:text-gray-50 text-gray-900 text-lg font-sans font-font-normal hover:underline"
+            >
+              Prices
+            </Link>
           </div>
-          <Subscription />
+          <Prices />
         </main>
       ) : (
         <div className="flex w-full items-center justify-center">
