@@ -1,5 +1,6 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
+import { protectedPath } from "../constants/protectedRoute";
 
 export async function updateSession(request: NextRequest) {
   let supabaseResponse = NextResponse.next({
@@ -39,23 +40,24 @@ export async function updateSession(request: NextRequest) {
   } = await supabase.auth.getSession();
   console.log(session);
 
-  const protectedPath = ["/dashboard", "/account"];
   const authPath = request.nextUrl.pathname.startsWith("/auth");
 
+  // If no user, potentially respond by redirecting the user to the login page
   if (
     !session &&
     protectedPath.some((path) => request.nextUrl.pathname.startsWith(path))
   ) {
-    // no user, potentially respond by redirecting the user to the login page
     const url = request.nextUrl.clone();
     url.pathname = "/auth";
+    url.searchParams.set("redirectTo", request.nextUrl.pathname);
     return NextResponse.redirect(url);
   }
 
   // if user is Already present, potentially respond by redirecting the user to the profile / main page
   if (session?.user && authPath) {
+    const redirectTo = request.nextUrl.searchParams.get("redirectTo") || "/";
     const url = request.nextUrl.clone();
-    url.pathname = "/";
+    url.pathname = redirectTo;
     return NextResponse.redirect(url);
   }
 

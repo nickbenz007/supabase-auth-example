@@ -22,6 +22,10 @@ const Auth = () => {
 
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
+    if (!userName || !userPassword) {
+      setErr("Username and Password cannot be empty.");
+      return;
+    }
     setLoading(true);
     setTimeout(() => {
       if (userName === "User" && userPassword === "Password") {
@@ -66,18 +70,18 @@ const Auth = () => {
     }
   };
   return (
-    <div className="flex items-center justify-center w-full h-screen">
+    <div className="flex items-center justify-center w-full h-screen dark:bg-gradient-to-r dark:from-gray-950 dark:to-slate-800 bg-gradient-to-b from-slate-500 to-gray-100">
       {/* Gradient Container */}
 
       <div className="relative flex w-96 rounded-xl">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-[conic-gradient(at_top_right,_#78716c,_#1e1b4b,_#2563eb,_#0ea5e9)] opacity-30 blur-xl"></div>
+          <div className="absolute inset-0 opacity-30 blur-xl"></div>
         </div>
-        <div className="relative z-10 w-96 items-center justify-center rounded-xl bg-transparent border border-gray-700 p-8 space-y-4 shadow-xl dark:shadow-gray-800 shadow-gray-300">
-          <div className="flex w-full items-center justify-start">
-            <article className="text-lg dark:text-gray-300 text-gray-900 font-sans font-semibold">
+        <div className="relative z-10 w-96 items-center justify-center rounded-xl bg-gradient-to-b from-sky-500 to-zinc-500 border border-sky-700 p-8 space-y-4 shadow-xl dark:shadow-gray-800 shadow-sky-700">
+          <div className="flex w-full items-center justify-center">
+            <article className="text-2xl dark:text-gray-300 text-gray-900 font-sans font-semibold">
               {" "}
-              Welccome back.!
+              Welcome back.!
             </article>
           </div>
           <div className="flex flex-row gap-2 items-center justify-center py-4">
@@ -152,7 +156,7 @@ const Auth = () => {
                 </span>
               </div>
             </div>
-            <p className="dark:text-gray-200 text-gray-800 text-sm font-sans font-normal">
+            <p className="dark:text-gray-200 text-gray-800 text-sm font-sans font-semibold tracking-wide">
               Sign in with your google account
             </p>
           </form>

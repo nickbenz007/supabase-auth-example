@@ -1,9 +1,11 @@
+import React from "react";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "../components/theme-provider";
 import { QueryProvider } from "@/components/query-provider";
 import { Nav } from "@/components/Nav";
+import {BreadCrumb} from "@/components/BreadCrumb";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -32,13 +34,14 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <QueryProvider>
-          <Nav />
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange
           >
+            <Nav />
+            <BreadCrumb/>
             {children}
           </ThemeProvider>
         </QueryProvider>

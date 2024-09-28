@@ -71,6 +71,14 @@ const config: Config = {
         fadeIn: "fadeIn 0.5s ease-in-out forwards",
         fadeOut: "fadeOut 0.5s ease-in-out forwards",
       },
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+      },
+      color: {
+        "light-pink": "#fbcfe8",
+        "light-purple": "#e9d5ff",
+        "light-blue": "#bfdbfe",
+      },
     },
   },
 

@@ -1,6 +1,7 @@
 export interface SubscriptionType {
-  Title: string;
-  Description: string;
-  Price: number;
-  Benefits: string[];
+  priceId: string;
+  title: string;
+  description: string;
+  price: number;
+  benefits: string[];
 }
